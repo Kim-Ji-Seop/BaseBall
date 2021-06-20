@@ -10,7 +10,7 @@ typedef struct BaseBall {
 }Play;
 Play base[500][10] = { NULL };
 
-int strike(int* guess, int* nums) { //strike ¼ö count
+int strike(int* guess, int* nums) { //strike ìˆ˜ count
 	int strike = 0;
 	for (int i = 0; i < 4; i++) {
 		if (*(guess + i) == *(nums + i)) strike++;
@@ -18,7 +18,7 @@ int strike(int* guess, int* nums) { //strike ¼ö count
 	return strike;
 }
 
-int ball(int* guess, int* nums) { //ball ¼ö count
+int ball(int* guess, int* nums) { //ball ìˆ˜ count
 	int ball = 0;
 	if (*(guess) == *(nums + 1) || *(guess) == *(nums + 2) || *(guess) == *(nums + 3)) ball++;
 	if (*(guess + 1) == *(nums) || *(guess + 1) == *(nums + 2) || *(guess + 1) == *(nums + 3)) ball++;
@@ -35,12 +35,12 @@ void test() {
 	int index_j[500] = { 0 };
 	int guess[4];
 	srand(time(NULL));
-	int strike_num; //strike ÆÇº°
-	int ball_num; // ball ÆÇº°
+	int strike_num; //strike íŒë³„
+	int ball_num; // ball íŒë³„
 	while (!feof(fp)) {
 		if (fgets(buf, 100, fp) != NULL) {
 			
-			//Split(buf);//µ¥ÀÌÅÍ ºÒ·¯¿Â µÚ  Á¡¼öÃ³¸® 
+			//Split(buf);//ë°ì´í„° ë¶ˆëŸ¬ì˜¨ ë’¤  ì ìˆ˜ì²˜ë¦¬ 
 			//printf("%s\n", buf);
 			if (strlen(buf) == 5) {
 				base[i][j].numberSet[0] = buf[0] - 48;
@@ -67,36 +67,10 @@ void test() {
 
 	int randNumber[10] = { 0,1,2,3,4,5,6,7,8,9 };
 	for (i = 0; i < line; i++) {
-		printf("<%d°ÔÀÓ>\n", i + 1);
+		printf("<%dê²Œì„>\n", i + 1);
 		for (j = 0; j < index_j[i]; j++) {
 			printf("%d %d %d %d %dS %dB\n", base[i][j].numberSet[0], base[i][j].numberSet[1], base[i][j].numberSet[2], base[i][j].numberSet[3], base[i][j].Strike, base[i][j].ball);
-			//if (back_point == 0) {
-			//	for (int g = 0; g < 4; g++) { // ¼ö°¡ °ãÄ¡Áö ¾Êµµ·Ï for¹®¾È¿¡¼­ Á¶Á¤, ¾Æ·¡¿¡¼­ i-=1 ÀÇ ¼ö½ÄÀº continue¿Í 
-			//		guess[g] = randNumber[rand() % 9]; // 0~9 ¼öÀÇ ·£´ı ÀÎµ¦½ºÀ§Ä¡
-			//		if (g == 1) {
-			//			if (guess[1] == guess[0]) g -= 1;
-			//		}
-			//		else if (g == 2) {
-			//			if (guess[2] == guess[1] || guess[2] == guess[0]) g -= 1;
-			//		}
-			//		else if (g == 3) {
-			//			if (guess[3] == guess[2] || guess[3] == guess[1] || guess[3] == guess[0]) g -= 1;
-			//		}
-			//	}
-			//}
-			//strike_num = strike(&guess, &base[i][j].numberSet);
-			//ball_num = ball(&guess, &base[i][j].numberSet);
-			//if (strike_num == base[i][j].Strike && ball_num == base[i][j].ball) {
-			//	
-			//	printf("%d %d %d %d\n", guess[0], guess[1], guess[2], guess[3]);
-			//	back_point = 1;
-			//}
-			//else {
-			//	back_point = 0;
-			//	j = 0;
-			//}
 		}
-		//printf("%d %d %d %d\n", guess[0],guess[1],guess[2],guess[3]);
 		printf("-------------\n");
 	}
 
