@@ -9,7 +9,7 @@ typedef struct BaseBall {
 	int ball;
 }Play;
 Play base[500][10] = { NULL };
-
+// commit test
 int strike(int* guess, int* nums) { //strike 수 count
 	int strike = 0;
 	for (int i = 0; i < 4; i++) {
